@@ -290,3 +290,31 @@ mappings:
                 path_match: 'data_quality_insights.scores.*'
                 mapping:
                     type: 'short'
+        -
+            table_scopable_localizable_structure:
+                path_match: 'values.*-table.*'
+                match_mapping_type: 'object'
+                mapping:
+                    type: 'object'
+        -
+            table_text:
+                path_match: 'values.*-table.*.*-text'
+                mapping:
+                    type: 'keyword'
+                    normalizer: 'text_normalizer'
+        -
+            table_decimal:
+                path_match: 'values.*-table.*.*-decimal'
+                mapping:
+                    type: 'double'
+        -
+            table_boolean:
+                path_match: 'values.*-table.*.*-boolean'
+                mapping:
+                    type: 'boolean'
+        -
+            table_option:
+                path_match: 'values.*-table.*.*-option'
+                mapping:
+                    type: 'keyword'
+                    normalizer: 'attribute_option_normalizer'
