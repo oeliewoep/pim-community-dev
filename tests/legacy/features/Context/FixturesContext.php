@@ -44,7 +44,6 @@ use Akeneo\UserManagement\Component\Model\UserInterface;
 use Behat\ChainedStepsExtension\Step;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\Common\Util\ClassUtils;
-use League\Flysystem\MountManager;
 use OAuth2\OAuth2;
 use Oro\Bundle\PimDataGridBundle\Entity\DatagridView;
 use PHPUnit\Framework\Assert;
