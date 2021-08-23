@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useDebounceCallback, useTranslate, useUserContext} from '@akeneo-pim-community/shared';
 import {AttributeOption} from '../model';
 import {useAttributeContext} from '../contexts';
@@ -15,7 +15,7 @@ import {
   RowIcon,
   Search,
   SectionTitle,
-  Table,
+  Table, useAutoFocus,
 } from 'akeneo-design-system';
 import styled from 'styled-components';
 import DeleteConfirmationModal from './DeleteConfirmationModal';
@@ -53,6 +53,9 @@ const AttributeOptionTable = ({
   const [searchValue, setSearchValue] = useState('');
   const [autoSortingReadOnly, setAutoSortingReadOnly] = useState<boolean>(false);
   const [attributeOptionToDelete, setAttributeOptionToDelete] = useState<AttributeOption | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useAutoFocus(inputRef);
 
   const onSelectItem = (optionId: number) => {
     setShowNewOptionPlaceholder(false);
@@ -157,6 +160,7 @@ const AttributeOptionTable = ({
         placeholder={translate('pim_enrich.entity.attribute_option.module.edit.search.placeholder')}
         searchValue={searchValue}
         onSearchChange={onSearch}
+        inputRef={inputRef}
       >
         <Search.ResultCount>
           {translate(
