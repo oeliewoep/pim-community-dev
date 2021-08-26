@@ -291,7 +291,7 @@ const SelectInput = ({
         inputRef.current?.focus();
       }
     }
-  }, []);
+  }, [onChange]);
 
   return (
     <SelectInputContainer readOnly={readOnly} value={value} {...rest}>
