@@ -5,6 +5,7 @@ import {useHistory} from 'react-router';
 import {AppWizardData, useFetchAppWizardData} from '../../hooks/use-fetch-app-wizard-data';
 import {useTranslate} from '../../../shared/translate';
 import {ScopeList} from './ScopeList';
+import {useConfirmAuthorization} from '../../hooks/use-confirm-authorization';
 
 const Content = styled.div`
     display: grid;
@@ -50,6 +51,7 @@ export const AppWizard: FC<Props> = ({clientId}) => {
     const history = useHistory();
     const [wizardData, setWizardData] = useState<AppWizardData | null>(null);
     const fetchWizardData = useFetchAppWizardData(clientId);
+    const confirmAuthorization = useConfirmAuthorization(clientId);
 
     useEffect(() => {
         fetchWizardData().then(setWizardData);
@@ -57,6 +59,12 @@ export const AppWizard: FC<Props> = ({clientId}) => {
 
     const redirectToMarketplace = () => {
         history.push('/connect/marketplace');
+    };
+
+    const confirm = () => {
+        confirmAuthorization().then(() => {
+            console.log('confirmed');
+        });
     };
 
     if (wizardData === null) {
@@ -79,7 +87,7 @@ export const AppWizard: FC<Props> = ({clientId}) => {
                         <ActionButton level={'tertiary'} onClick={redirectToMarketplace}>
                             {translate('akeneo_connectivity.connection.connect.apps.action.cancel')}
                         </ActionButton>
-                        <ActionButton>
+                        <ActionButton onClick={confirm}>
                             {translate('akeneo_connectivity.connection.connect.apps.action.confirm')}
                         </ActionButton>
                     </Actions>
