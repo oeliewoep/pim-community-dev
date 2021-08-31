@@ -56,9 +56,8 @@ framework:
                 adapter: cache.system
 
 doctrine_migrations:
-    migrations_paths:
-        'Pim\Upgrade\Schema': '%kernel.project_dir%/upgrades/schema'
-    storage:
-        table_storage:
-            table_name: 'migration_versions'
-            version_column_length: 190
+    dir_name: '%doctrine_migrations_dir%'
+    namespace: Pim\Upgrade\Schema
+    name: PIM Migrations
+    column_name: 'version'
+    column_length: 191
