@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bde485634692dfdc9a49b059c8ab4d8",
+    "content-hash": "92bf52f28ae47aeb525ec229cec2c015",
     "packages": [
         {
             "name": "ass/xmlsecurity",
@@ -2384,43 +2384,42 @@
         },
         {
             "name": "friendsofsymfony/oauth-server-bundle",
-            "version": "dev-master",
+            "version": "2.0.0-alpha.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle.git",
-                "reference": "59404728a2277fad4c675f2b1c570e22f1136335"
+                "reference": "e12b077855b278579f97b293184eed2f1cea1acb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSOAuthServerBundle/zipball/59404728a2277fad4c675f2b1c570e22f1136335",
-                "reference": "59404728a2277fad4c675f2b1c570e22f1136335",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSOAuthServerBundle/zipball/e12b077855b278579f97b293184eed2f1cea1acb",
+                "reference": "e12b077855b278579f97b293184eed2f1cea1acb",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/oauth2-php": "~1.1",
-                "php": "^7.2 || ^8.0",
-                "symfony/dependency-injection": "^4.4 || ^5.1",
-                "symfony/framework-bundle": "^4.4 || ^5.1",
-                "symfony/security-bundle": "^4.4 || ^5.1",
-                "symfony/twig-bundle": "^4.4 || ^5.1"
-            },
-            "conflict": {
-                "twig/twig": "<1.40 || >=2.0,<2.9"
+                "php": "^7.1",
+                "symfony/dependency-injection": "~3.0|~4.0",
+                "symfony/framework-bundle": "~3.0|~4.0",
+                "symfony/security-bundle": "~3.0|~4.0"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "^2.0",
-                "doctrine/mongodb-odm": "^2.2",
+                "doctrine/doctrine-bundle": "~1.0",
+                "doctrine/mongodb-odm": "~1.0",
                 "doctrine/orm": "~2.2",
                 "phing/phing": "~2.4",
-                "php-mock/php-mock-phpunit": "~1.0 || ~2.0",
-                "phpstan/phpstan": "^0.12",
+                "php-mock/php-mock-phpunit": "~1.0|~2.0",
                 "phpstan/phpstan-phpunit": "~0.9",
-                "phpunit/phpunit": "^9.0",
+                "phpstan/phpstan-shim": "~0.9",
+                "phpunit/phpunit": "~5.0|~6.0",
                 "propel/propel1": "~1.6",
-                "symfony/console": "^4.4 || ^5.1",
-                "symfony/form": "^4.4 || ^5.1",
-                "symfony/phpunit-bridge": "^4.4 || ^5.1",
-                "symfony/yaml": "^4.4 || ^5.1",
+                "symfony/class-loader": "~3.0|~4.0",
+                "symfony/console": "~3.0|~4.0",
+                "symfony/form": "~3.0|~4.0",
+                "symfony/phpunit-bridge": "~3.0|~4.0",
+                "symfony/templating": "~3.0|~4.0",
+                "symfony/twig-bundle": "~3.0|^4.0",
+                "symfony/yaml": "~3.0|~4.0",
                 "willdurand/propel-typehintable-behavior": "~1.0"
             },
             "suggest": {
@@ -2431,11 +2430,10 @@
                 "symfony/form": "Needed to be able to use the AuthorizeFormType",
                 "willdurand/propel-typehintable-behavior": "The Typehintable behavior is useful to add type hints on generated methods, to be compliant with interfaces"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -2471,7 +2469,7 @@
                 "issues": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle/issues",
                 "source": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle/tree/master"
             },
-            "time": "2021-04-01T07:15:12+00:00"
+            "time": "2018-05-01T06:24:45+00:00"
         },
         {
             "name": "friendsofsymfony/oauth2-php",
@@ -16188,10 +16186,17 @@
             "time": "2021-07-28T10:34:58+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "friendsofsymfony/oauth-server-bundle",
+            "version": "2.0.0.0-alpha0",
+            "alias": "2.0.0",
+            "alias_normalized": "2.0.0.0"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/oauth-server-bundle": 20
+        "friendsofsymfony/oauth-server-bundle": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,
