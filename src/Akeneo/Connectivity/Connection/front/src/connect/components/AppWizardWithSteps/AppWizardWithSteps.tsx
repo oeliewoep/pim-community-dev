@@ -50,7 +50,7 @@ export const AppWizardWithSteps: FC<Props> = ({clientId}) => {
     const fetchWizardData = useFetchAppWizardData(clientId);
     const steps: string[] = [
         'authorizations',
-        'permission',
+        'permissions',
         'well_done',
     ];
     const [isCurrent, next, previous] = useProgress(steps);
@@ -78,7 +78,11 @@ export const AppWizardWithSteps: FC<Props> = ({clientId}) => {
                 </PreviousButton>
             }
             <AllowAndNextButton onClick={next}>
-                {translate('akeneo_connectivity.connection.connect.apps.wizard.action.allow_and_next')}
+                {
+                    isCurrent('authorizations') ?
+                        translate('akeneo_connectivity.connection.connect.apps.wizard.action.allow_and_next') :
+                        translate('akeneo_connectivity.connection.connect.apps.wizard.action.next')
+                }
             </AllowAndNextButton>
 
             <Content>
@@ -93,7 +97,7 @@ export const AppWizardWithSteps: FC<Props> = ({clientId}) => {
                     />
                 }
                 {
-                    isCurrent('permission') && <Permissions />
+                    isCurrent('permissions') && <Permissions />
                 }
             </Content>
 
