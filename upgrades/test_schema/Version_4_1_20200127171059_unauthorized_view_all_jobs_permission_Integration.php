@@ -127,7 +127,7 @@ class Version_4_1_20200127171059_unauthorized_view_all_jobs_permission_Integrati
         $this
             ->aclManager
             ->getPrivilegeRepository()
-            ->savePrivileges(new RoleSecurityIdentity($role), new ArrayCollection([$privilege]));
+            ->savePrivileges(new RoleSecurityIdentity($role->getRole()), new ArrayCollection([$privilege]));
     }
 
     private function getMigrationLabel(): string

@@ -2,6 +2,7 @@
 
 namespace Pim\Upgrade\Schema;
 
+use Akeneo\UserManagement\Component\Model\Role;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
@@ -22,6 +23,7 @@ final class Version_4_1_20200127171059_unauthorized_view_all_jobs_permission ext
     public function up(Schema $schema) : void
     {
         $aclManager = $this->container->get('oro_security.acl.manager');
+        /** @var Role[] $roles */
         $roles = $this->container->get('pim_user.repository.role')->findAll();
 
         foreach ($roles as $role) {
@@ -32,7 +34,7 @@ final class Version_4_1_20200127171059_unauthorized_view_all_jobs_permission ext
                 ->addPermission(new AclPermission('EXECUTE', 0));
 
             $aclManager->getPrivilegeRepository()
-                ->savePrivileges(new RoleSecurityIdentity($role), new ArrayCollection([$privilege]));
+                ->savePrivileges(new RoleSecurityIdentity($role->getRole()), new ArrayCollection([$privilege]));
         }
 
         $aclManager->flush();
